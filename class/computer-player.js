@@ -2,7 +2,15 @@
 class ComputerPlayer {
 
   static getValidMoves(grid) {
-    // Your code here
+    let moves = [];
+    for(let i = 0; i < grid.length; i++) {
+      for (let j = 0; j < grid[0].length; j++) {
+        if(grid[i][j] === ' ') {
+          moves.push({row: i, col: j});
+        }
+      }
+    }
+    return moves;
   }
 
   static randomMove(grid) {
