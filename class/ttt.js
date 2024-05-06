@@ -24,16 +24,35 @@ class TTT {
   }
 
   // Remove this
-  static testCommand() {
-    console.log("TEST COMMAND");
-  }
+  // static testCommand() {
+  //   console.log("TEST COMMAND");
+  // }
 
   static checkWin(grid) {
 
-    // Return 'X' if player X wins
-    // Return 'O' if player O wins
-    // Return 'T' if the game is a tie
-    // Return false if the game has not ended
+    for (let i = 0; i < grid.length; i++) {
+      if (grid[i][0] === grid[i][1] && grid[i][1] === grid[i][2] && grid[i][0] != ' ') {
+        return grid[i][0];
+      }
+      if (grid[0][i] === grid[1][i] && grid[1][i] === grid[2][i] && grid[0][i] != ' ') {
+        return grid[0][i];
+      }
+    }
+    if ((grid[0][0] === grid[1][1]) && (grid[1][1] === grid[2][2]) && grid[0][0] !== ' ') {
+      return grid[0][0];
+    }
+    if ((grid[0][2] === grid[1][1]) && (grid[1][1] === grid[2][0]) && grid[0][2] !== ' ') {
+      return grid[0][2];
+    }
+
+    for (let i = 0; i < grid.length; i++) {
+      for (let j = 0; j < grid[0].length; j++) {
+        if (grid[i][j] === ' ') {
+          return false;
+        }
+      }
+    }
+    return 'T';
 
   }
 
